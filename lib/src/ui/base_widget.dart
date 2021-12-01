@@ -35,7 +35,12 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
       return false;
     }
 
-    var text = Text(confirmationMessage);
+    var text = Text(
+      confirmationMessage,
+      style: TextStyle(
+        color: Colors.black,
+      ),
+    );
 
     var dialog = Platform.isIOS
         ? CupertinoAlertDialog(

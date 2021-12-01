@@ -24,13 +24,14 @@ class BaseTextField extends TextFormField {
     bool autoFocus = false,
     bool obscureText = false,
   }) : super(
+    
             controller: controller,
             inputFormatters: inputFormatters,
             onSaved: onSaved,
             validator: validator,
             autofocus: autoFocus,
             maxLines: 1,
-            style: style,
+            style: TextStyle(color: Colors.grey),
             textAlign: textAlign,
             initialValue: initialValue,
             keyboardType: keyboardType,
