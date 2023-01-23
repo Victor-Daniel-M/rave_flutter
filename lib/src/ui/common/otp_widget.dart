@@ -25,7 +25,9 @@ class _OtpWidgetState extends State<OtpWidget> {
       padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       child: Form(
         key: _formKey,
-        autovalidate: _autoValidate,
+        autovalidateMode: _autoValidate
+            ? AutovalidateMode.always
+            : AutovalidateMode.onUserInteraction,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +54,7 @@ class _OtpWidgetState extends State<OtpWidget> {
               ),
               autoFocus: true,
               inputFormatters: [
-                WhitelistingTextInputFormatter.digitsOnly,
+                FilteringTextInputFormatter.digitsOnly,
               ],
               obscureText: true,
               hintText: "OTP",
@@ -64,18 +66,18 @@ class _OtpWidgetState extends State<OtpWidget> {
             Container(
               width: double.infinity,
               margin: EdgeInsets.only(top: 20, bottom: 10),
-              child: FlatButton(
-                color: MyColors.buttercup,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: MyColors.buttercup,
+                    padding: EdgeInsets.symmetric(vertical: 13, horizontal: 20),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(0)))),
                 child: Text(
                   "Continue",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontSize: 15),
-                ),
-                padding: EdgeInsets.symmetric(
-                  vertical: 13,
-                  horizontal: 20,
                 ),
                 onPressed: _validateInputs,
               ),

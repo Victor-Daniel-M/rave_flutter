@@ -73,11 +73,12 @@ class _RavePayWidgetState extends BaseState<RavePayWidget>
   Widget buildChild(BuildContext context) {
     var column = Column(
       children: _items.map((item) {
-        var index = _items.indexOf(item);
-        return _selectedIndex == index ? item.content : buildItemHeader(index);
-      }).toList() + [
-        FlutterwaveBadge()
-      ],
+            var index = _items.indexOf(item);
+            return _selectedIndex == index
+                ? item.content
+                : buildItemHeader(index);
+          }).toList() +
+          [FlutterwaveBadge()],
     );
     Widget child = SingleChildScrollView(
       child: AnimatedSize(
@@ -397,8 +398,12 @@ class _RavePayWidgetState extends BaseState<RavePayWidget>
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(border: Border(top: border, bottom: border)),
-      child: FlatButton(
-        color: Colors.grey[100],
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.grey[100],
+            padding: EdgeInsets.symmetric(vertical: 17, horizontal: 20),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(0)))),
         child: Row(
           children: <Widget>[
             SvgPicture.asset(
@@ -412,9 +417,6 @@ class _RavePayWidgetState extends BaseState<RavePayWidget>
             Flexible(child: Text('Pay with ${item.title}')),
           ],
         ),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(0))),
-        padding: EdgeInsets.symmetric(vertical: 17, horizontal: 20),
         onPressed: () {
           setState(() {
             _selectedIndex = index;

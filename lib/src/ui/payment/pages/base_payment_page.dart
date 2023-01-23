@@ -136,10 +136,13 @@ abstract class BasePaymentPageState<T extends BasePaymentPage> extends State<T>
     var payButton = Container(
       width: double.infinity,
       margin: EdgeInsets.only(top: 20, bottom: 15),
-      child: FlatButton(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: MyColors.buttercup,
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(0)))),
         onPressed: _validateInputs,
-        color: MyColors.buttercup,
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: Row(
           children: <Widget>[
             Expanded(
@@ -180,7 +183,9 @@ abstract class BasePaymentPageState<T extends BasePaymentPage> extends State<T>
 
     return Form(
       key: formKey,
-      autovalidate: _autoValidate,
+      autovalidateMode: _autoValidate
+          ? AutovalidateMode.always
+          : AutovalidateMode.onUserInteraction,
       child: Column(
         children: amountAndEmailFields
           ..insert(0, topWidget)

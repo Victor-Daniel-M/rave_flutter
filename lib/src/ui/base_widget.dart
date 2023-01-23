@@ -67,13 +67,13 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
         : AlertDialog(
             content: text,
             actions: <Widget>[
-              FlatButton(
+              ElevatedButton(
                   child: Text('NO'),
                   onPressed: () {
                     Navigator.of(context).pop(
                         false); // Pops the confirmation dialog but not the page.
                   }),
-              FlatButton(
+              ElevatedButton(
                   child: Text('YES'),
                   onPressed: () {
                     Navigator.of(context).pop(

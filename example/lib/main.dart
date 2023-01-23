@@ -133,7 +133,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Form(
                     key: formKey,
-                    autovalidate: autoValidate,
+                    autovalidateMode: autoValidate
+                        ? AutovalidateMode.always
+                        : AutovalidateMode.onUserInteraction,
                     child: Column(
                       children: <Widget>[
                         TextFormField(
@@ -311,7 +313,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     var response = await RavePayManager()
         .prompt(context: context, initializer: initializer);
     print(response);
-    scaffoldKey.currentState
+    ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(response?.message)));
   }
 }

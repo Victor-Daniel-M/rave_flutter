@@ -153,8 +153,8 @@ abstract class BaseTransactionManager {
       child = AlertDialog(
         content: content,
         actions: <Widget>[
-          FlatButton(onPressed: closeDialog, child: Text('NO')),
-          FlatButton(onPressed: charge, child: Text('YES'))
+          ElevatedButton(onPressed: closeDialog, child: Text('NO')),
+          ElevatedButton(onPressed: charge, child: Text('YES'))
         ],
       );
     }
