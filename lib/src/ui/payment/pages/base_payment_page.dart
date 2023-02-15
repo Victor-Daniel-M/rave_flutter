@@ -183,9 +183,8 @@ abstract class BasePaymentPageState<T extends BasePaymentPage> extends State<T>
 
     return Form(
       key: formKey,
-      autovalidateMode: _autoValidate
-          ? AutovalidateMode.always
-          : AutovalidateMode.onUserInteraction,
+      autovalidateMode:
+          _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
       child: Column(
         children: amountAndEmailFields
           ..insert(0, topWidget)

@@ -135,7 +135,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     key: formKey,
                     autovalidateMode: autoValidate
                         ? AutovalidateMode.always
-                        : AutovalidateMode.onUserInteraction,
+                        : AutovalidateMode.disabled,
                     child: Column(
                       children: <Widget>[
                         TextFormField(

@@ -27,9 +27,8 @@ class _AddVendorWidgetState extends State<AddVendorWidget> {
     return AlertDialog(
       content: Form(
         key: formKey,
-        autovalidateMode: autoValidate
-            ? AutovalidateMode.always
-            : AutovalidateMode.onUserInteraction,
+        autovalidateMode:
+            autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
